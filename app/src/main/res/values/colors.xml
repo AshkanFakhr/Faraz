@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="orange">#ff5500</color>
+    <color name="pink_light">#ffffc8ea</color>
+    <color name="pink">#ffff4adf</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="overLay">#b7ffffff</color>
+    <color name="date_color">#999999</color>
+    <color name="black">#000000</color>
+    <color name="gray">#999999</color>
+    <color name="gray_light">#c0c0c0</color>
+    <color name="gray_light_2">#d1d1d1</color>
+    <color name="dark_gray">#666666</color>
+    <color name="dark_gray_2">#ff262626</color>
+    <color name="silver">#dddddd</color>
+    <color name="silver_darker">#dddddd</color>
+    <color name="silver_light">#e0e0e0</color>
+    <color name="silver_light_2">#f2f2f2</color>
+    <color name="blue">#0066cc</color>
+    <color name="green">#27ae60</color>
+    <color name="gold">#ffe022</color>
+    <color name="darker_gold">#ffffc022</color>
+    <color name="blueback">#99FFFF</color>
+    <color name="articlecolor">#3399FF</color>
+    <color name="light_blue">#ffb7faff</color>
+    <color name="dark_blue" >#464476</color>
+    <color name="dark_caption" >#DD353434</color>
+    <color name="feed_bg">#d3d6db</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
+    <color name="list_item_title">#fff</color>
+    <color name="shadow">#b1444444</color>
+    <color name="shadow_lighter">#1b000000</color>
+    <color name="shadow_darker">#EE444444</color>
+    <color name="red">#ffbe313b</color>
+    <color name="red_darker">#892027</color>
+</resources>

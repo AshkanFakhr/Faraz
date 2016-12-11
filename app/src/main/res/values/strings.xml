@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Faraz</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="sign_up">ثبت نام</string>
+    <string name="sign_in">ورود کاربر</string>
+    <string name="user_name_at_least_4">نام کاربری باید حداقل چهار کاراکتر باشد</string>
+</resources>
