@@ -21,7 +21,7 @@
             android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/registerButton"
+            android:layout_above="@+id/signUpButton"
             android:layout_below="@+id/toolbar"
             android:paddingLeft="@dimen/fab_margin"
             android:paddingRight="@dimen/fab_margin">
@@ -127,7 +127,7 @@
         </ScrollView>
 
         <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/registerButton"
+            android:id="@+id/signUpButton"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -145,9 +145,9 @@
             android:id="@+id/registerButtonProgress"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/registerButton"
-            android:layout_alignLeft="@+id/registerButton"
-            android:layout_alignTop="@+id/registerButton"
+            android:layout_alignBottom="@+id/signUpButton"
+            android:layout_alignLeft="@+id/signUpButton"
+            android:layout_alignTop="@+id/signUpButton"
             android:layout_margin="9dp"
             android:translationZ="2dp"
             app:pv_autostart="false"

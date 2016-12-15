@@ -2,31 +2,25 @@ package ashkan.fakhr.faraz.utilities;
 
 import java.text.DecimalFormat;
 
-/**
- * Created by Amin on 11/16/2014.
- * be cause this app will be used for different websites, it needs different Constants too
- */
+
 public class Constants {
 
-    public static String WEB_SERVER = "http://support.appchar.com/api/rest/public/";
+    private static String WEB_SERVER = "http://support.appchar.com/api/rest/public/";
     public static String SIGN_UP_URL = WEB_SERVER + "user";
 
 
-    //AMIN: request tags:
-
-
-    //AMIN: Name Strings:
-    public static String LOG_TAG = "****ASHKAN ** DEBUG****";
+    //Name Strings:
+    static String LOG_TAG = "****ASHKAN ** DEBUG****";
 
     // local
 
 
-    //AMIN Shared Pref Keys
-    public static String SP_FILE_NAME_BASE = "sp_file_base";
-    public static String FALSE = "FALSE";
+    //Shared Pref Keys
+    static String SP_FILE_NAME_BASE = "sp_file_base";
+    static String FALSE = "FALSE";
     public static String TRUE = "TRUE";
 
-    //AMIN INTENT KEYS:
+    //INTENT KEYS:
     public static String PARENT_ID = "PARENT_ID";
     public static String TITLE = "TITLE";
     public static String MAX_NUMBER = "MAX_NUMBER";
@@ -53,14 +47,14 @@ public class Constants {
     public static String MODEL_JSON = "MODEL_JSON";
 
 
-    //AMIN Numbers:
+    //Numbers:
     public static int NOTIFICATION_CHECK_INTERVAL = 30 * 60 * 1000;
     public static final int VOLLEY_TIME_OUT = 25000;
     public static int COUNT = 7;
 
 
     public static final int NOTIFICATION_ID = 900;
-    public static boolean DEBUG = true;
+    static boolean DEBUG = true;
 
     public static String persianNumbers(String num) {
         try {

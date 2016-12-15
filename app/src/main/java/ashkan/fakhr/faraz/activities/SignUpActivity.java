@@ -28,15 +28,15 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         Snippets.setupUI(this, findViewById(R.id.root));
-        findViewById(R.id.registerButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signUp();
+                signUpClick();
             }
         });
     }
 
-    public void signUp(){
+    public void signUpClick() {
         UserModel userModel = new UserModel();
 
         TextView textView = (TextView) findViewById(R.id.name);
@@ -51,7 +51,7 @@ public class SignUpActivity extends Activity {
         if (textView.getText().length() > 3) {
             userModel.setEmail(textView.getText().toString());
         } else {
-            showError(getString(R.string.user_name_at_least_4));
+            showError(getString(R.string.email_at_least_4));
             return;
         }
 
@@ -59,7 +59,7 @@ public class SignUpActivity extends Activity {
         if (textView.getText().length() > 3) {
             userModel.setPassword1(textView.getText().toString());
         } else {
-            showError(getString(R.string.user_name_at_least_4));
+            showError(getString(R.string.password_at_least_4));
             return;
         }
 
@@ -67,14 +67,14 @@ public class SignUpActivity extends Activity {
         if (textView.getText().length() > 3) {
             userModel.setPassword2(textView.getText().toString());
         } else {
-            showError(getString(R.string.user_name_at_least_4));
+            showError(getString(R.string.password_at_least_4));
             return;
         }
         textView = (TextView) findViewById(R.id.mobile);
         if (textView.getText().length() > 3) {
             userModel.setPhone_number(textView.getText().toString());
         } else {
-            showError(getString(R.string.user_name_at_least_4));
+            showError(getString(R.string.mobile_number_at_least_4));
             return;
         }
 
