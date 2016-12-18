@@ -28,15 +28,15 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Snippets.setupUI(this, findViewById(R.id.root));
-        findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signInClick();
+                loginClick();
             }
         });
     }
 
-    public void signInClick() {
+    public void loginClick() {
         UserModel userModel = new UserModel();
 
         TextView textView = (TextView) findViewById(R.id.email);

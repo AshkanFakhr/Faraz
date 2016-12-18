@@ -2,9 +2,11 @@
     <string name="app_name">Faraz</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="sign_up">ثبت نام</string>
+    <string name="activation">ارسال</string>
     <string name="login">ورود کاربر</string>
     <string name="user_name_at_least_4">نام کاربری باید حداقل چهار کاراکتر باشد</string>
     <string name="email_at_least_4">ایمیل باید حداقل چهار کاراکتر باشد</string>
     <string name="password_at_least_4">رمز عبور باید حداقل چهار کاراکتر باشد</string>
     <string name="mobile_number_at_least_4">شماره موبایل باید حداقل چهار کاراکتر باشد</string>
+    <string name="activation_code">کد فعال سازی</string>
 </resources>

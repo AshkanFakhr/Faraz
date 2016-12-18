@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.volley.VolleyError;
+import com.rey.material.widget.Button;
 import com.rey.material.widget.ProgressView;
 
 import ashkan.fakhr.faraz.R;
@@ -23,11 +24,15 @@ import ashkan.fakhr.faraz.utilities.Snippets;
  * Created by Ashkan on 12/9/2016.
  */
 public class SignUpActivity extends Activity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         Snippets.setupUI(this, findViewById(R.id.root));
+
+
         findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +97,7 @@ public class SignUpActivity extends Activity {
                     e.printStackTrace();
                 }
                 if (registerResponseModel != null && registerResponseModel.isStatus()){
-                    Toast.makeText(SignUpActivity.this, registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this, "ID: " + registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -108,6 +113,8 @@ public class SignUpActivity extends Activity {
 
             }
         }, "", postJsonData);
+
+//        Toast.makeText()
     }
 
     private void showError(String message) {
