@@ -2,6 +2,8 @@ package ashkan.fakhr.faraz.utilities;
 
 import java.text.DecimalFormat;
 
+import ashkan.fakhr.faraz.models.ValidationResponseModel;
+
 
 public class Constants {
 

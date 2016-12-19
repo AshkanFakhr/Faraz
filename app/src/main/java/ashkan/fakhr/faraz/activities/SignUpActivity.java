@@ -1,6 +1,7 @@
 package ashkan.fakhr.faraz.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -24,6 +25,8 @@ import ashkan.fakhr.faraz.utilities.Snippets;
  * Created by Ashkan on 12/9/2016.
  */
 public class SignUpActivity extends Activity {
+
+    public static final String SIGN_UP_SUCCESS_MESSAGE = "signUpSuccessMessage";
 
 
     @Override
@@ -98,6 +101,10 @@ public class SignUpActivity extends Activity {
                 }
                 if (registerResponseModel != null && registerResponseModel.isStatus()){
                     Toast.makeText(SignUpActivity.this, "ID: " + registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this, "کد تایید شماره تلفن برای شما ارسال خواهد شد", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(SignUpActivity.this, ValidationCodeActivity.class);
+//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
+                    startActivity(intent);
                 }
             }
 
@@ -114,7 +121,6 @@ public class SignUpActivity extends Activity {
             }
         }, "", postJsonData);
 
-//        Toast.makeText()
     }
 
     private void showError(String message) {
