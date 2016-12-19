@@ -1,6 +1,7 @@
 package ashkan.fakhr.faraz.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -57,11 +58,11 @@ public class LoginActivity extends Activity {
 
         String postJsonData = JSON.toJSONString(userModel);
         Snippets.hideKeyboard(this);
-        ((ProgressView) findViewById(R.id.registerButtonProgress)).start();
-        NetworkRequests.postRequest(Constants.SIGN_UP_URL, new Interfaces.NetworkListeners() {
+        ((ProgressView) findViewById(R.id.loginButtonProgress)).start();
+        NetworkRequests.postRequest(Constants.LOGIN_URL, new Interfaces.NetworkListeners() {
             @Override
             public void onResponse(String response, String tag) {
-                ((ProgressView) findViewById(R.id.registerButtonProgress)).stop();
+                ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
                 RegisterResponseModel registerResponseModel = null;
                 try {
                     registerResponseModel = JSON.parseObject(response, RegisterResponseModel.class);
@@ -70,18 +71,21 @@ public class LoginActivity extends Activity {
                 }
                 if (registerResponseModel != null && registerResponseModel.isStatus()) {
                     Toast.makeText(LoginActivity.this, registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
+                    startActivity(intent);
                 }
             }
 
             @Override
             public void onError(VolleyError error, String tag) {
-                ((ProgressView) findViewById(R.id.registerButtonProgress)).stop();
+                ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
 
             }
 
             @Override
             public void onOffline(String tag) {
-                ((ProgressView) findViewById(R.id.registerButtonProgress)).stop();
+                ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
 
             }
         }, "", postJsonData);

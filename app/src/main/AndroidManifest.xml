@@ -32,6 +32,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ashkan.fakhr.faraz.activities.MainActivity" />
         </activity>
+
+        <activity
+            android:name=".activities.ValidationCodeActivity"
+            android:label="ValidationCodeActivity"
+            android:parentActivityName=".activities.SignUpActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ashkan.fakhr.faraz.activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.LoginActivity"
+            android:label="LoginActivity"
+            android:parentActivityName=".activities.ValidationCodeActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ashkan.fakhr.faraz.activities.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.HomePageActivity"
+            android:label="HomePageActivity"
+            android:parentActivityName=".activities.LoginActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ashkan.fakhr.faraz.activities.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

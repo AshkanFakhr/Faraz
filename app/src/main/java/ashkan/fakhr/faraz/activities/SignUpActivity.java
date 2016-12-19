@@ -103,7 +103,7 @@ public class SignUpActivity extends Activity {
                     Toast.makeText(SignUpActivity.this, "ID: " + registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
                     Toast.makeText(SignUpActivity.this, "کد تایید شماره تلفن برای شما ارسال خواهد شد", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, ValidationCodeActivity.class);
-//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
+                    intent.putExtra(Constants.ID, registerResponseModel.getUser_id());
                     startActivity(intent);
                 }
             }

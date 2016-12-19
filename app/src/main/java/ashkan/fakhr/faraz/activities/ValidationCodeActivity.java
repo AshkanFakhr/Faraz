@@ -1,6 +1,7 @@
 package ashkan.fakhr.faraz.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.android.volley.VolleyError;
 import com.rey.material.widget.ProgressView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import ashkan.fakhr.faraz.R;
 import ashkan.fakhr.faraz.models.RegisterResponseModel;
@@ -41,21 +45,24 @@ public class ValidationCodeActivity extends Activity {
     }
 
     private void btnEnterCode() {
-        UserModel userModel = new UserModel();
-        int key;
+        String key;
 
         TextView textView = (TextView) findViewById(R.id.activationCode);
         if (textView.getText().length() > 3) {
-            key = Integer.parseInt(textView.getText().toString());
+            key = textView.getText().toString();
         } else {
             showError(getString(R.string.mobile_number_at_least_4));
             return;
         }
+        String ACTIVATION_URL = Constants.SIGN_UP_URL + "" + getIntent().getExtras().getString(Constants.ID) + "/activation";
 
-        ValidationResponseModel validationResponseModel = null;
-        String ACTIVATION_URL = Constants.SIGN_UP_URL + "" + validationResponseModel.getUser_id() + "activation";
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("key", key);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        String postJsonData = JSON.toJSONString(userModel);
         Snippets.hideKeyboard(this);
         ((ProgressView) findViewById(R.id.validationButtonProgress)).start();
         NetworkRequests.postRequest(ACTIVATION_URL, new Interfaces.NetworkListeners() {
@@ -70,6 +77,9 @@ public class ValidationCodeActivity extends Activity {
                 }
                 if (validationResponseModel != null && validationResponseModel.isStatus()) {
                     Toast.makeText(ValidationCodeActivity.this, "کد فعال سازی درست است", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(ValidationCodeActivity.this, HomePageActivity.class);
+//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
+                    startActivity(intent);
                 }
             }
 
@@ -84,7 +94,7 @@ public class ValidationCodeActivity extends Activity {
                 ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
 
             }
-        }, "", postJsonData);
+        }, "", jsonObject.toString());
 
     }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/itemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="آدرس سایت"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/itemsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:layout_toLeftOf="@+id/itemsText"
+        android:background="@color/silver_light"
+        android:gravity="right"
+        android:inputType="text"
+        android:text="" />
+
+
+</RelativeLayout>
