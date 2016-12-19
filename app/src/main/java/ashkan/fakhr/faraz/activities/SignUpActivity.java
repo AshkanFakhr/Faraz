@@ -48,7 +48,7 @@ public class SignUpActivity extends Activity {
         UserModel userModel = new UserModel();
 
         TextView textView = (TextView) findViewById(R.id.name);
-        if (textView.getText().length() > 3) {
+        if (textView.getText().length() > 2) {
             userModel.setName(textView.getText().toString());
         } else {
             showError(getString(R.string.user_name_at_least_4));

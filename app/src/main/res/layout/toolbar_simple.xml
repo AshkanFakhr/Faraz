@@ -28,6 +28,19 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
+
+        <com.rey.material.widget.ProgressView
+            android:id="@+id/toolbarProgress"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:translationZ="2dp"
+            app:pv_autostart="false"
+            app:pv_circular="true"
+            app:pv_progressMode="indeterminate"
+            app:pv_progressStyle="@style/CircularProgressWhite" />
+
     </RelativeLayout>
 
 </android.support.v7.widget.Toolbar>

@@ -76,6 +76,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/login"
+            android:onClick="loginActivityOpenClick"
             android:textColor="@color/white"
             android:textSize="14dp"
             app:backgroundTint="@color/colorAccent" />

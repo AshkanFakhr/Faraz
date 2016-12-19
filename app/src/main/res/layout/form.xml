@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_simple" />
 
+
+    <ashkan.fakhr.faraz.utilities.Spinner
+        android:id="@+id/topicSpinner"
+        style="@style/spinnerTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/toolbar"
+        app:rd_style="@style/Material.Drawable.Ripple.Wave.Light"
+        app:spn_arrowAnimDuration="@android:integer/config_shortAnimTime"
+        app:spn_arrowColor="@color/colorAccent"
+        app:spn_arrowInterpolator="@android:anim/accelerate_interpolator"
+        app:spn_dividerColor="@color/colorPrimary"
+        app:spn_label="@string/choose_your_topic"
+        app:spn_labelEnable="true"
+        app:spn_labelTextColor="@color/textColorSecondary"
+        app:spn_labelTextSize="11dp" />
+
+
     <ScrollView
         android:id="@+id/formScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/topicSpinner"
         android:paddingLeft="@dimen/fab_margin"
+        android:alpha="0"
         android:paddingRight="@dimen/fab_margin">
 
         <LinearLayout
@@ -97,7 +121,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
 
         </LinearLayout>
 

@@ -8,8 +8,9 @@ import ashkan.fakhr.faraz.models.ValidationResponseModel;
 public class Constants {
 
     private static String WEB_SERVER = "http://support.appchar.com/api/rest/public/";
-    public static String SIGN_UP_URL = WEB_SERVER + "user/";
+    public static String SIGN_UP_URL = WEB_SERVER + "user";
     public static String LOGIN_URL = WEB_SERVER + "user/token";
+    public static String TOPICS_URL = WEB_SERVER + "topics";
 
 
     //Name Strings:

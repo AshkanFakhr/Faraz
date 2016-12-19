@@ -12,6 +12,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="spinnerTheme" parent="Material.Widget.Spinner.Light"></style>
+
     <style name="CircularProgressWhite" parent="Material.Drawable.CircularProgress">
         <item name="cpd_strokeColor">@color/white</item>
         <item name="cpd_strokeSize">1dp</item>

@@ -54,7 +54,7 @@ public class ValidationCodeActivity extends Activity {
             showError(getString(R.string.mobile_number_at_least_4));
             return;
         }
-        String ACTIVATION_URL = Constants.SIGN_UP_URL + "" + getIntent().getExtras().getString(Constants.ID) + "/activation";
+        String url = Constants.SIGN_UP_URL + "/" + getIntent().getExtras().getString(Constants.ID) + "/activation";
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -65,7 +65,7 @@ public class ValidationCodeActivity extends Activity {
 
         Snippets.hideKeyboard(this);
         ((ProgressView) findViewById(R.id.validationButtonProgress)).start();
-        NetworkRequests.postRequest(ACTIVATION_URL, new Interfaces.NetworkListeners() {
+        NetworkRequests.postRequest(url, new Interfaces.NetworkListeners() {
             @Override
             public void onResponse(String response, String tag) {
                 ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
@@ -78,7 +78,6 @@ public class ValidationCodeActivity extends Activity {
                 if (validationResponseModel != null && validationResponseModel.isStatus()) {
                     Toast.makeText(ValidationCodeActivity.this, "کد فعال سازی درست است", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(ValidationCodeActivity.this, HomePageActivity.class);
-//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
                     startActivity(intent);
                 }
             }

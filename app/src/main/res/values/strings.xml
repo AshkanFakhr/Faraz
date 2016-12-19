@@ -9,4 +9,5 @@
     <string name="password_at_least_4">رمز عبور باید حداقل چهار کاراکتر باشد</string>
     <string name="mobile_number_at_least_4">شماره موبایل باید حداقل چهار کاراکتر باشد</string>
     <string name="activation_code">کد فعال سازی</string>
+    <string name="choose_your_topic">موضوع درخواست:</string>
 </resources>
