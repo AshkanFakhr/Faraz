@@ -35,6 +35,9 @@ public class Constants {
     public static String TYPE = "TYPE";
     public static String IMAGE = "IMAGE";
     public static String ID = "ID";
+    public static String DATA = "DATA";
+    public static String TOKEN = "TOKEN";
+
 
     // 0 : new items
     // 1 : top items

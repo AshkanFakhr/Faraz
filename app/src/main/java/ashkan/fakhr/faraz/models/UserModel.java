@@ -8,7 +8,7 @@ public class UserModel {
 
      String name;
      String email;
-     String password1;
+    String password;
      String password2;
      String phone_number;
      int timezone_id = 18;
@@ -29,12 +29,12 @@ public class UserModel {
         this.email = email;
     }
 
-    public String getPassword1() {
-        return password1;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPassword1(String password1) {
-        this.password1 = password1;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPassword2() {

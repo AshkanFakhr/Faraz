@@ -65,7 +65,7 @@ public class SignUpActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.password);
         if (textView.getText().length() > 3) {
-            userModel.setPassword1(textView.getText().toString());
+            userModel.setPassword(textView.getText().toString());
         } else {
             showError(getString(R.string.password_at_least_4));
             return;

@@ -1134,7 +1134,7 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
         }
 
         /**
-         * If the wrapped SpinnerAdapter is also a ListAdapter, delegate this call. Otherwise,
+         * If the wrapped ChoiceSpinnerAdapter is also a ListAdapter, delegate this call. Otherwise,
          * return true.
          */
         public boolean areAllItemsEnabled() {
@@ -1143,7 +1143,7 @@ public class Spinner extends FrameLayout implements ThemeManager.OnThemeChangedL
         }
 
         /**
-         * If the wrapped SpinnerAdapter is also a ListAdapter, delegate this call. Otherwise,
+         * If the wrapped ChoiceSpinnerAdapter is also a ListAdapter, delegate this call. Otherwise,
          * return true.
          */
         public boolean isEnabled(int position) {

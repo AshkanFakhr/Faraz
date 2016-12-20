@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.android.volley.VolleyError;
 import com.rey.material.widget.ProgressView;
 
@@ -50,7 +52,7 @@ public class LoginActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.password);
         if (textView.getText().length() > 3) {
-            userModel.setPassword1(textView.getText().toString());
+            userModel.setPassword(textView.getText().toString());
         } else {
             showError(getString(R.string.user_name_at_least_4));
             return;
@@ -63,18 +65,11 @@ public class LoginActivity extends Activity {
             @Override
             public void onResponse(String response, String tag) {
                 ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
-                RegisterResponseModel registerResponseModel = null;
-                try {
-                    registerResponseModel = JSON.parseObject(response, RegisterResponseModel.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (registerResponseModel != null && registerResponseModel.isStatus()) {
-                    Toast.makeText(LoginActivity.this, registerResponseModel.getUser_id(), Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
-//                    intent.putExtra(SIGN_UP_SUCCESS_MESSAGE, "You registered successfully");
-                    startActivity(intent);
-                }
+                JSONObject jsonObject = JSON.parseObject(response);
+                Snippets.setSP(Constants.TOKEN, jsonObject.get("token").toString());
+                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                startActivity(intent);
+
             }
 
             @Override
