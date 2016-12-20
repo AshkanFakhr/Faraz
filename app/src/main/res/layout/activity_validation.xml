@@ -17,9 +17,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/activation_code"
             android:inputType="number"
+            android:paddingTop="15dp"
             android:maxLines="1"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="@color/silver_light"
+            android:padding="5dp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -36,7 +39,7 @@
         android:text="@string/activation"
         android:textColor="@color/white"
         android:textSize="14dp"
-        app:backgroundTint="@color/colorAccent" />
+        app:backgroundTint="@color/green" />
 
     <com.rey.material.widget.ProgressView
         android:id="@+id/validationButtonProgress"

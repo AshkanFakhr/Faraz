@@ -37,6 +37,8 @@ public class Constants {
     public static String ID = "ID";
     public static String DATA = "DATA";
     public static String TOKEN = "TOKEN";
+    public static String EMAIL = "EMAIL";
+    public static String PASSWORD = "PASSWORD";
 
 
     // 0 : new items

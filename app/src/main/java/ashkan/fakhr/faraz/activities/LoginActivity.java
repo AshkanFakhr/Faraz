@@ -66,7 +66,7 @@ public class LoginActivity extends Activity {
             public void onResponse(String response, String tag) {
                 ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
                 JSONObject jsonObject = JSON.parseObject(response);
-                Snippets.setSP(Constants.TOKEN, jsonObject.get("token").toString());
+                Snippets.setSP(Constants.TOKEN, jsonObject.getString("token"));
                 Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
                 startActivity(intent);
 

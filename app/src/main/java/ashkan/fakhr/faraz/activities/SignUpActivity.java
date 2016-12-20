@@ -26,9 +26,6 @@ import ashkan.fakhr.faraz.utilities.Snippets;
  */
 public class SignUpActivity extends Activity {
 
-    public static final String SIGN_UP_SUCCESS_MESSAGE = "signUpSuccessMessage";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +42,7 @@ public class SignUpActivity extends Activity {
     }
 
     public void signUpClick() {
-        UserModel userModel = new UserModel();
+        final UserModel userModel = new UserModel();
 
         TextView textView = (TextView) findViewById(R.id.name);
         if (textView.getText().length() > 2) {
@@ -65,7 +62,7 @@ public class SignUpActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.password);
         if (textView.getText().length() > 3) {
-            userModel.setPassword(textView.getText().toString());
+            userModel.setPassword1(textView.getText().toString());
         } else {
             showError(getString(R.string.password_at_least_4));
             return;
@@ -104,6 +101,8 @@ public class SignUpActivity extends Activity {
                     Toast.makeText(SignUpActivity.this, "کد تایید شماره تلفن برای شما ارسال خواهد شد", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, ValidationCodeActivity.class);
                     intent.putExtra(Constants.ID, registerResponseModel.getUser_id());
+                    intent.putExtra(Constants.EMAIL, userModel.getEmail());
+                    intent.putExtra(Constants.PASSWORD, userModel.getPassword1());
                     startActivity(intent);
                 }
             }

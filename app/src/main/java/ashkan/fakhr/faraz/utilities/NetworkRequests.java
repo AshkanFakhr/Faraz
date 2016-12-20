@@ -60,6 +60,7 @@ public class NetworkRequests {
 
         if (DEBUG) {
             Log.d(LOG_TAG, tag + " url = " + url);
+            Log.d(LOG_TAG, " post data for url " + url + jsonData);
         }
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 url, new Response.Listener<String>() {

@@ -9,6 +9,7 @@ public class UserModel {
      String name;
      String email;
     String password;
+    String password1;
      String password2;
      String phone_number;
      int timezone_id = 18;
@@ -51,5 +52,13 @@ public class UserModel {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public String getPassword1() {
+        return password1;
+    }
+
+    public void setPassword1(String password1) {
+        this.password1 = password1;
     }
 }

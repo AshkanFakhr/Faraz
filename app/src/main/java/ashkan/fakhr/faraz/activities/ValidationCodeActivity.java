@@ -54,7 +54,7 @@ public class ValidationCodeActivity extends Activity {
             showError(getString(R.string.mobile_number_at_least_4));
             return;
         }
-        String url = Constants.SIGN_UP_URL + "/" + getIntent().getExtras().getString(Constants.ID) + "/activation";
+        String url = Constants.SIGN_UP_URL + "/" + getIntent().getExtras().getInt(Constants.ID) + "/activation";
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -77,8 +77,7 @@ public class ValidationCodeActivity extends Activity {
                 }
                 if (validationResponseModel != null && validationResponseModel.isStatus()) {
                     Toast.makeText(ValidationCodeActivity.this, "کد فعال سازی درست است", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(ValidationCodeActivity.this, HomePageActivity.class);
-                    startActivity(intent);
+                    login();
                 }
             }
 
@@ -94,6 +93,41 @@ public class ValidationCodeActivity extends Activity {
 
             }
         }, "", jsonObject.toString());
+
+    }
+
+    private void login() {
+        UserModel userModel = new UserModel();
+
+        userModel.setEmail(getIntent().getExtras().getString(Constants.EMAIL));
+        userModel.setPassword(getIntent().getExtras().getString(Constants.PASSWORD));
+
+        String postJsonData = JSON.toJSONString(userModel);
+        Snippets.hideKeyboard(this);
+        ((ProgressView) findViewById(R.id.validationButtonProgress)).start();
+        NetworkRequests.postRequest(Constants.LOGIN_URL, new Interfaces.NetworkListeners() {
+            @Override
+            public void onResponse(String response, String tag) {
+                ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
+                com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
+                Snippets.setSP(Constants.TOKEN, jsonObject.getString("token"));
+                Intent intent = new Intent(ValidationCodeActivity.this, HomePageActivity.class);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onError(VolleyError error, String tag) {
+                ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
+
+            }
+
+            @Override
+            public void onOffline(String tag) {
+                ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
+
+            }
+        }, "", postJsonData);
 
     }
 

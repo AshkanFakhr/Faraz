@@ -37,6 +37,7 @@ public class HomePageActivity extends Activity {
                 downloadTopics();
             }
         });
+
     }
 
     private void downloadTopics() {

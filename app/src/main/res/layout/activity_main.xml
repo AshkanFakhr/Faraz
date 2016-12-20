@@ -12,13 +12,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,15 +26,36 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="ashkan.fakhr.faraz.activities.MainActivity"
-        tools:showIn="@layout/activity_main">
+        tools:showIn="@layout/activity_main"
+        android:background="@drawable/wheat_farm_gradient">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شرکت گاز"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/textView" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/gas_white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
 
         <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/signUpButtonInMain"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
+            android:layout_above="@+id/signInButtonInMain"
             android:layout_marginRight="20dp"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
@@ -49,7 +63,7 @@
             android:onClick="signUpActivityOpenClick"
             android:textColor="@color/white"
             android:textSize="14dp"
-            app:backgroundTint="@color/colorAccent" />
+            app:backgroundTint="@color/green" />
 
         <com.rey.material.widget.ProgressView
             android:id="@+id/registerButtonProgress"
@@ -69,17 +83,17 @@
             android:id="@+id/signInButtonInMain"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/signUpButtonInMain"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/login"
             android:onClick="loginActivityOpenClick"
             android:textColor="@color/white"
             android:textSize="14dp"
-            app:backgroundTint="@color/colorAccent" />
+            app:backgroundTint="@color/green" />
 
         <com.rey.material.widget.ProgressView
             android:id="@+id/signInButtonProgress"

@@ -56,8 +56,10 @@
                             android:inputType="textEmailAddress"
                             android:textSize="@dimen/login_input_ts"
                             android:maxLines="1"
+                            android:padding="5dp"
                             android:text=""
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            android:background="@color/silver_light" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -74,9 +76,11 @@
                             android:imeActionLabel="action_sign_in_short"
                             android:imeOptions="actionUnspecified"
                             android:inputType="textPassword"
+                            android:padding="5dp"
                             android:textSize="@dimen/login_input_ts"
                             android:maxLines="1"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            android:background="@color/silver_light" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -101,7 +105,7 @@
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="14dp"
-            app:backgroundTint="@color/colorAccent" />
+            app:backgroundTint="@color/green" />
 
         <com.rey.material.widget.ProgressView
             android:id="@+id/loginButtonProgress"
