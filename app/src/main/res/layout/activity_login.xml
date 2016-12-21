@@ -1,6 +1,6 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,117 +11,110 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/petroleum_blurred_transparent25">
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar_simple" />
-
-        <!-- Login progress -->
-        <!--<include layout="@layout/loading" />-->
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar"
-            android:layout_above="@+id/loginButton"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <RelativeLayout
+
+            <LinearLayout
+                android:id="@+id/loginlay"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
 
-                <LinearLayout
-                    android:id="@+id/loginlay"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="@dimen/account_m_lr"
-                    android:layout_marginRight="@dimen/account_m_lr"
-                    android:visibility="visible">
+                    android:layout_height="wrap_content">
 
-                    <android.support.design.widget.TextInputLayout
+                    <AutoCompleteTextView
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:background="@color/silver_light"
+                        android:hint="ایمیل"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textSize="@dimen/btn_text_size" />
 
-                        <AutoCompleteTextView
-                            android:id="@+id/email"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="ایمیل"
-                            android:inputType="textEmailAddress"
-                            android:textSize="@dimen/login_input_ts"
-                            android:maxLines="1"
-                            android:padding="5dp"
-                            android:text=""
-                            android:singleLine="true"
-                            android:background="@color/silver_light" />
+                </android.support.design.widget.TextInputLayout>
 
-                    </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <android.support.design.widget.TextInputLayout
+                    <EditText
+                        android:id="@+id/password"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:background="@color/silver_light"
+                        android:hint="رمز عبور"
+                        android:imeActionId="@+id/login"
+                        android:imeActionLabel="action_sign_in_short"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/btn_text_size" />
 
-                        <EditText
-                            android:id="@+id/password"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="رمز عبور"
-                            android:imeActionId="@+id/login"
-                            android:imeActionLabel="action_sign_in_short"
-                            android:imeOptions="actionUnspecified"
-                            android:inputType="textPassword"
-                            android:padding="5dp"
-                            android:textSize="@dimen/login_input_ts"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:background="@color/silver_light" />
-
-                    </android.support.design.widget.TextInputLayout>
+                </android.support.design.widget.TextInputLayout>
 
 
-                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
+                    <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/loginButton"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="30dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="@string/login"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/btn_text_size"
+                        app:backgroundTint="@color/green" />
 
-            </RelativeLayout>
+                    <com.rey.material.widget.ProgressView
+                        android:id="@+id/loginButtonProgress"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/loginButton"
+                        android:layout_alignLeft="@+id/loginButton"
+                        android:layout_alignTop="@+id/loginButton"
+                        android:layout_margin="9dp"
+                        android:translationZ="2dp"
+                        app:pv_autostart="false"
+                        app:pv_circular="true"
+                        app:pv_progressMode="indeterminate"
+                        app:pv_progressStyle="@style/CircularProgressWhite" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </ScrollView>
-
-        <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/loginButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:text="@string/login"
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            app:backgroundTint="@color/green" />
-
-        <com.rey.material.widget.ProgressView
-            android:id="@+id/loginButtonProgress"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/loginButton"
-            android:layout_alignLeft="@+id/loginButton"
-            android:layout_alignTop="@+id/loginButton"
-            android:layout_margin="9dp"
-            android:translationZ="2dp"
-            app:pv_autostart="false"
-            app:pv_circular="true"
-            app:pv_progressMode="indeterminate"
-            app:pv_progressStyle="@style/CircularProgressWhite" />
-
-        <!--<include layout="@layout/loading" />-->
 
     </RelativeLayout>
 
