@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/petroleum_blurred_transparent25">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
         android:id="@+id/toolbar"

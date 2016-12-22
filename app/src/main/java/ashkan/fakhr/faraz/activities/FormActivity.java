@@ -29,6 +29,8 @@ public class FormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TextView textView = (TextView) findViewById(R.id.toolbarTitle);
+        textView.setText(R.string.form_activity_title);
         setContentView(R.layout.activity_form);
         Snippets.setupUI(this, findViewById(R.id.root));
         formLinLay = (LinearLayout) findViewById(R.id.dynamicFormLinLay);
@@ -58,11 +60,22 @@ public class FormActivity extends AppCompatActivity {
                 case "choices":
                     createChoicesRow(formModel);
                     break;
+                case "bool":
+                    createCheckBox(formModel);
+                    break;
             }
         }
 
         Snippets.setupUI(this, findViewById(R.id.root));
         ViewAnimator.animate(findViewById(R.id.formScrollView)).alpha(0, 1).duration(600).start();
+    }
+
+    private void createCheckBox(FormModel formModel) {
+        View row = LayoutInflater.from(this).inflate(R.layout.item_bool, formLinLay, false);
+        ((TextView) row.findViewById(R.id.title)).setText(formModel.getLabel());
+//        ((CheckBox) row.findViewById(R.id.checkbox)).setText("ب");
+        formLinLay.addView(row);
+
     }
 
     private void createChoicesRow(FormModel formModel) {

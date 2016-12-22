@@ -31,6 +31,10 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Snippets.setupUI(this, findViewById(R.id.root));
+        TextView textView = (TextView) findViewById(R.id.toolbarTitle);
+        textView.setText(R.string.login_activity_title);
+        findViewById(R.id.emailEditText).requestFocus();
+
         findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +46,7 @@ public class LoginActivity extends Activity {
     public void loginClick() {
         UserModel userModel = new UserModel();
 
-        TextView textView = (TextView) findViewById(R.id.email);
+        TextView textView = (TextView) findViewById(R.id.emailEditText);
         if (textView.getText().length() > 2) {
             userModel.setEmail(textView.getText().toString());
         } else {
@@ -50,7 +54,7 @@ public class LoginActivity extends Activity {
             return;
         }
 
-        textView = (TextView) findViewById(R.id.password);
+        textView = (TextView) findViewById(R.id.passwordEditText);
         if (textView.getText().length() > 3) {
             userModel.setPassword(textView.getText().toString());
         } else {

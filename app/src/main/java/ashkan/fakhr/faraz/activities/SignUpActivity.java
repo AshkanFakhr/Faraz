@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.android.volley.VolleyError;
-import com.rey.material.widget.Button;
 import com.rey.material.widget.ProgressView;
 
 import ashkan.fakhr.faraz.R;
@@ -31,7 +30,9 @@ public class SignUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         Snippets.setupUI(this, findViewById(R.id.root));
-
+        TextView textView = (TextView) findViewById(R.id.toolbarTitle);
+        textView.setText(R.string.sign_up_activity_title);
+        findViewById(R.id.nameEditText).requestFocus();
 
         findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +45,7 @@ public class SignUpActivity extends Activity {
     public void signUpClick() {
         final UserModel userModel = new UserModel();
 
-        TextView textView = (TextView) findViewById(R.id.name);
+        TextView textView = (TextView) findViewById(R.id.nameEditText);
         if (textView.getText().length() > 2) {
             userModel.setName(textView.getText().toString());
         } else {
@@ -52,7 +53,7 @@ public class SignUpActivity extends Activity {
             return;
         }
 
-        textView = (TextView) findViewById(R.id.email);
+        textView = (TextView) findViewById(R.id.emailEditText);
         if (textView.getText().length() > 3) {
             userModel.setEmail(textView.getText().toString());
         } else {
@@ -60,7 +61,7 @@ public class SignUpActivity extends Activity {
             return;
         }
 
-        textView = (TextView) findViewById(R.id.password);
+        textView = (TextView) findViewById(R.id.passwordEditText);
         if (textView.getText().length() > 3) {
             userModel.setPassword1(textView.getText().toString());
         } else {
@@ -68,14 +69,14 @@ public class SignUpActivity extends Activity {
             return;
         }
 
-        textView = (TextView) findViewById(R.id.passwordRepeat);
+        textView = (TextView) findViewById(R.id.passwordReEditText);
         if (textView.getText().length() > 3) {
             userModel.setPassword2(textView.getText().toString());
         } else {
             showError(getString(R.string.password_at_least_4));
             return;
         }
-        textView = (TextView) findViewById(R.id.mobile);
+        textView = (TextView) findViewById(R.id.mobileEditText);
         if (textView.getText().length() > 3) {
             userModel.setPhone_number(textView.getText().toString());
         } else {

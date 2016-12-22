@@ -47,7 +47,7 @@ public class ValidationCodeActivity extends Activity {
     private void btnEnterCode() {
         String key;
 
-        TextView textView = (TextView) findViewById(R.id.activationCode);
+        TextView textView = (TextView) findViewById(R.id.activationEditText);
         if (textView.getText().length() > 3) {
             key = textView.getText().toString();
         } else {

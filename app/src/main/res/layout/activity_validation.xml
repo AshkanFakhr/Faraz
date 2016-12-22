@@ -4,45 +4,42 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/petroleum_blurred_transparent25"
     android:orientation="vertical"
     android:paddingLeft="@dimen/fab_margin"
+    android:paddingTop="@dimen/fab_margin"
+    android:paddingBottom="@dimen/fab_margin"
     android:paddingRight="@dimen/fab_margin">
 
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
+        android:id="@+id/activationLinLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/activationCode"
-        android:paddingTop="16dp">
+        android:layoutDirection="rtl"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
-        <AutoCompleteTextView
+        <TextView
+            android:id="@+id/activationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/activation_code"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/activationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:background="@color/silver_light"
-            android:hint="@string/activation_code"
             android:inputType="number"
             android:maxLines="1"
             android:padding="5dp"
-            android:singleLine="true"
-            android:textSize="20sp" />
+            android:text="" />
+    </LinearLayout>
 
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/activationButton"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/activationCode"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="@string/activation"
-        android:textColor="@color/white"
-        android:textSize="14dp"
-        app:backgroundTint="@color/green" />
 
     <com.rey.material.widget.ProgressView
         android:id="@+id/validationButtonProgress"
@@ -57,6 +54,23 @@
         app:pv_circular="true"
         app:pv_progressMode="indeterminate"
         app:pv_progressStyle="@style/CircularProgressWhite" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/activationButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/activation"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="14dp"
+        app:backgroundTint="@color/buttonColor"
+        android:layout_below="@+id/activationLinLay"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
