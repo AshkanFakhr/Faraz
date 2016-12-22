@@ -33,6 +33,7 @@ public class SignUpActivity extends Activity {
         TextView textView = (TextView) findViewById(R.id.toolbarTitle);
         textView.setText(R.string.sign_up_activity_title);
         findViewById(R.id.nameEditText).requestFocus();
+        Snippets.setFontForActivity(findViewById(R.id.root));
 
         findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override

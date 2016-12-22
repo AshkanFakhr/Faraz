@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.android.volley.VolleyError;
@@ -30,6 +31,9 @@ public class HomePageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         Snippets.setupUI(this, findViewById(R.id.root));
+        TextView textView = (TextView) findViewById(R.id.toolbarTitle);
+        textView.setText("اپلیکیشن فراز");
+        Snippets.setFontForActivity(findViewById(R.id.root));
 
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +49,8 @@ public class HomePageActivity extends Activity {
         NetworkRequests.getRequest(Constants.TOPICS_URL, new Interfaces.NetworkListeners() {
             @Override
             public void onResponse(String response, String tag) {
+
+                ((ProgressView) findViewById(R.id.toolbar).findViewById(R.id.toolbarProgress)).stop();
                 List<TopicModel> formModels = null;
                 try {
                     formModels = JSON.parseArray(response, TopicModel.class);
@@ -61,12 +67,12 @@ public class HomePageActivity extends Activity {
 
             @Override
             public void onError(VolleyError error, String tag) {
-
+                ((ProgressView) findViewById(R.id.toolbar).findViewById(R.id.toolbarProgress)).stop();
             }
 
             @Override
             public void onOffline(String tag) {
-
+                ((ProgressView) findViewById(R.id.toolbar).findViewById(R.id.toolbarProgress)).stop();
             }
         }, "");
     }

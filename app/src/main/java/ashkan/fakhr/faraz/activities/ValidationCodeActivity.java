@@ -35,6 +35,7 @@ public class ValidationCodeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_validation);
         Snippets.setupUI(this, findViewById(R.id.root));
+        Snippets.setFontForActivity(findViewById(R.id.root));
 
         findViewById(R.id.activationButton).setOnClickListener(new View.OnClickListener() {
             @Override

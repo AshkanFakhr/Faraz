@@ -133,12 +133,12 @@ and save it to the base location of app, with a folder name taken from string.xm
         }
     }
 
-    public static String getSP(String key) {
+    public static String getSP(String key, String defaultValue) {
         SharedPreferences sp
                 = AppController
                 .applicationContext
                 .getSharedPreferences(Constants.SP_FILE_NAME_BASE, Context.MODE_PRIVATE);
-        return sp.getString(key, Constants.FALSE);
+        return sp.getString(key, defaultValue);
     }
 
     public static void setSP(String key, String value) {

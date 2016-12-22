@@ -34,6 +34,7 @@ public class LoginActivity extends Activity {
         TextView textView = (TextView) findViewById(R.id.toolbarTitle);
         textView.setText(R.string.login_activity_title);
         findViewById(R.id.emailEditText).requestFocus();
+        Snippets.setFontForActivity(findViewById(R.id.root));
 
         findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
             @Override

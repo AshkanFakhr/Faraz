@@ -13,10 +13,10 @@
     <string name="form_activity_title">ثبت درخواست جدید</string>
     <string name="sign_up_activity_title">ثبت نام</string>
     <string name="login_activity_title">ورود کاربر</string>
-    <string name="email">ایمیل</string>
-    <string name="password">رمز عبور</string>
-    <string name="password_re">تکرار رمز عبور</string>
-    <string name="name">نام</string>
-    <string name="mobile">موبایل</string>
-    <string name="activation_code">کد فعال سازی</string>
+    <string name="email">ایمیل:</string>
+    <string name="password">رمز عبور:</string>
+    <string name="password_re">تکرار رمز عبور:</string>
+    <string name="name">نام:</string>
+    <string name="mobile">موبایل:</string>
+    <string name="activation_code">کد فعال سازی:</string>
 </resources>

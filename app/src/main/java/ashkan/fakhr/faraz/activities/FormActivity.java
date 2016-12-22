@@ -29,10 +29,11 @@ public class FormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_form);
         TextView textView = (TextView) findViewById(R.id.toolbarTitle);
         textView.setText(R.string.form_activity_title);
-        setContentView(R.layout.activity_form);
         Snippets.setupUI(this, findViewById(R.id.root));
+        Snippets.setFontForActivity(findViewById(R.id.root));
         formLinLay = (LinearLayout) findViewById(R.id.dynamicFormLinLay);
         topicList = JSON.parseArray(getIntent().getExtras().getString(Constants.DATA), TopicModel.class);
         TopicSpinnerAdapter topicSpinnerAdapter = new TopicSpinnerAdapter(this, topicList);
@@ -48,6 +49,7 @@ public class FormActivity extends AppCompatActivity {
             }
         });
         onTopicSelected(topicList.get(0));
+
     }
 
     private void onTopicSelected(TopicModel topicModel) {
@@ -101,4 +103,6 @@ public class FormActivity extends AppCompatActivity {
         ((TextView) row.findViewById(R.id.title)).setText(formModel.getLabel());
         formLinLay.addView(row);
     }
+
+
 }
