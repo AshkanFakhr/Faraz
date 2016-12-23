@@ -24,17 +24,20 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //    compile 'com.android.support:support-v7:25.1.0'
+
+    // Glide for image loading
+    // Google Volley for network
+    // Alibaba fastjson Library for json parsing
+    // Material widgets
+    // View Animator
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:design:25.0.1'
-    testCompile 'junit:junit:4.12'
-    // Glide for image loading
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    // Google Volley for network
     compile 'com.android.volley:volley:1.0.0'
-    // Alibaba fastjson Library for json parsing
     compile 'com.alibaba:fastjson:1.2.11'
-    // Material widgets
     compile 'com.github.rey5137:material:1.2.4'
-    // View Animator
     compile 'com.github.florent37:viewanimator:1.0.4'
+    compile 'com.android.support:support-v4:25.0.1'
+    testCompile 'junit:junit:4.12'
 }
