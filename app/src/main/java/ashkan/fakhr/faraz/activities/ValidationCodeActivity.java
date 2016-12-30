@@ -16,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ashkan.fakhr.faraz.R;
-import ashkan.fakhr.faraz.models.RegisterResponseModel;
+import ashkan.fakhr.faraz.models.LoginResponseModel;
 import ashkan.fakhr.faraz.models.UserModel;
 import ashkan.fakhr.faraz.models.ValidationResponseModel;
 import ashkan.fakhr.faraz.utilities.Constants;
@@ -110,10 +110,20 @@ public class ValidationCodeActivity extends Activity {
             @Override
             public void onResponse(String response, String tag) {
                 ((ProgressView) findViewById(R.id.validationButtonProgress)).stop();
-                com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response);
-                Snippets.setSP(Constants.TOKEN, jsonObject.getString("token"));
-                Intent intent = new Intent(ValidationCodeActivity.this, HomePageActivity.class);
-                startActivity(intent);
+
+                LoginResponseModel loginResponseModel = null;
+                try {
+                    loginResponseModel = JSON.parseObject(response, LoginResponseModel.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (loginResponseModel != null) {
+                    Snippets.setSP(Constants.TOKEN, loginResponseModel.getToken());
+                    Snippets.setSP(Constants.LOGGED_IN_USER, JSON.toJSONString(loginResponseModel.getUser()));
+                    Intent intent = new Intent(ValidationCodeActivity.this, NavigationDrawerActivity.class);
+                    startActivity(intent);
+                }
 
             }
 

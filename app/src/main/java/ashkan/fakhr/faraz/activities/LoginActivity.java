@@ -4,18 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.android.volley.VolleyError;
 import com.rey.material.widget.ProgressView;
 
 import ashkan.fakhr.faraz.R;
-import ashkan.fakhr.faraz.models.RegisterResponseModel;
+import ashkan.fakhr.faraz.models.LoginResponseModel;
 import ashkan.fakhr.faraz.models.UserModel;
 import ashkan.fakhr.faraz.utilities.Constants;
 import ashkan.fakhr.faraz.utilities.Interfaces;
@@ -42,6 +39,7 @@ public class LoginActivity extends Activity {
                 loginClick();
             }
         });
+
     }
 
     public void loginClick() {
@@ -70,10 +68,21 @@ public class LoginActivity extends Activity {
             @Override
             public void onResponse(String response, String tag) {
                 ((ProgressView) findViewById(R.id.loginButtonProgress)).stop();
-                JSONObject jsonObject = JSON.parseObject(response);
-                Snippets.setSP(Constants.TOKEN, jsonObject.getString("token"));
-                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
-                startActivity(intent);
+
+                LoginResponseModel loginResponseModel = null;
+                try {
+                    loginResponseModel = JSON.parseObject(response, LoginResponseModel.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                if (loginResponseModel != null) {
+                    //JSONObject jsonObject = JSON.parseObject(response);
+                    Snippets.setSP(Constants.TOKEN, loginResponseModel.getToken());
+                    Snippets.setSP(Constants.LOGGED_IN_USER, JSON.toJSONString(loginResponseModel.getUser()));
+                    Intent intent = new Intent(LoginActivity.this, NavigationDrawerActivity.class);
+                    startActivity(intent);
+                }
 
             }
 

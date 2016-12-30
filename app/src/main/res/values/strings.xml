@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Faraz</string>
+    <string name="app_name">فراز</string>
     <string name="gas_company">شرکت گاز</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="sign_up">ثبت نام</string>
@@ -27,7 +27,7 @@
     <string name="closeDrawer">close_drawer</string>
 
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_home">Home</string>
+    <string name="nav_logout">خروج</string>
     <string name="nav_photos">Photos</string>
     <string name="nav_movies">Movies</string>
     <string name="nav_notifications">Notifications</string>
@@ -46,11 +46,21 @@
     <string name="activity_title_about_us">About Us</string>
     <string name="activity_title_privacy_policy">Privacy Policy</string>
     <string name="action_clear_all">Clear All</string>
-    <string name="action_logout">Logout</string>
+    <string name="action_logout">خروج</string>
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="privacy_policy">Privacy Policy</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="gallery_txt">انتخاب از گالری</string>
+    <string name="camera_txt">عکس جدید</string>
+    <string name="add_new_photo">اضافه کردن عکس جدید:</string>
+
+    <string name="are_you_sure_to_upload_this_image">آیا این عکس آپلود شود ؟!</string>
+    <string name="send">ارسال</string>
+
 
 </resources>

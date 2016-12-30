@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:layoutDirection="rtl">
 
     <com.rey.material.widget.CheckBox
@@ -10,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:textColor="@color/textColorPrimary"
         android:layout_marginLeft="10dp"
         android:layout_alignParentLeft="true"
         android:gravity="right|center_vertical"
@@ -24,6 +26,7 @@
         android:layout_marginLeft="70dp"
         android:padding="10dp"
         android:gravity="right"
+        android:textColor="@color/textColorPrimary"
         android:text="آدرس سایت"
         android:textSize="18sp"
         android:layout_alignParentTop="true"

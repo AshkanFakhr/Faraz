@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,6 +14,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:textColor="@color/textColorPrimary"
         android:layout_marginTop="20dp"
         app:rd_style="@style/Material.Drawable.Ripple.Wave.Light"
         app:spn_arrowAnimDuration="@android:integer/config_shortAnimTime"
@@ -21,7 +23,7 @@
         app:spn_dividerColor="@color/colorPrimary"
         app:spn_label="@string/choose_your_topic"
         app:spn_labelEnable="true"
-        app:spn_labelTextColor="@color/textColorSecondary"
+        app:spn_labelTextColor="@color/textColorPrimary"
         app:spn_labelTextSize="11dp" />
 
 </RelativeLayout>

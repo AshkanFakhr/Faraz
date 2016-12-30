@@ -1,9 +1,11 @@
 package ashkan.fakhr.faraz.utilities;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -11,15 +13,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -102,7 +101,7 @@ and save it to the base location of app, with a folder name taken from string.xm
     public static void setFontForActivity(View view) {
 
         Typeface tf = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/theme.ttf");
-        Typeface tfb = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/themebold.ttf");
+        Typeface tfb = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/theme_bold.ttf");
         Typeface tfl = Typeface.createFromAsset(view.getContext().getAssets(), "fonts/theme_light.ttf");
         //Set up touch listener for non-text box views to hide keyboard.
         setFontRecursive(view, tf, tfb, tfl);
@@ -148,6 +147,16 @@ and save it to the base location of app, with a folder name taken from string.xm
                 .getSharedPreferences(Constants.SP_FILE_NAME_BASE, Context.MODE_PRIVATE);
         SharedPreferences.Editor spe = sp.edit();
         spe.putString(key, value);
+        spe.apply();
+    }
+
+    public static void removeSP(String key) {
+        SharedPreferences sp
+                = AppController
+                .applicationContext
+                .getSharedPreferences(Constants.SP_FILE_NAME_BASE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor spe = sp.edit();
+        spe.remove(key);
         spe.apply();
     }
 
@@ -212,5 +221,29 @@ and save it to the base location of app, with a folder name taken from string.xm
             }
         }
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+
+    public static boolean verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+            return false;
+        } else {
+            return true;
+        }
     }
 }

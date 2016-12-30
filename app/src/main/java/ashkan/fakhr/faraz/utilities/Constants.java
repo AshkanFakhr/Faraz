@@ -1,6 +1,14 @@
 package ashkan.fakhr.faraz.utilities;
 
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.File;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import ashkan.fakhr.faraz.models.ValidationResponseModel;
 
@@ -39,6 +47,7 @@ public class Constants {
     public static String TOKEN = "TOKEN";
     public static String EMAIL = "EMAIL";
     public static String PASSWORD = "PASSWORD";
+    public static String LOGGED_IN_USER = "LOGGED_IN_USER";
 
 
     // 0 : new items
@@ -61,7 +70,13 @@ public class Constants {
     public static int NOTIFICATION_CHECK_INTERVAL = 30 * 60 * 1000;
     public static final int VOLLEY_TIME_OUT = 25000;
     public static int COUNT = 7;
+    public static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
+    public static final int GALLERY_PICK_IMAGE_REQUEST_CODE = 101;
+    public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_VIDEO = 2;
 
+    // directory name to store captured images and videos
+    private static final String IMAGE_DIRECTORY_NAME = "Faraz";
 
     public static final int NOTIFICATION_ID = 900;
     static boolean DEBUG = true;
@@ -86,6 +101,50 @@ public class Constants {
     public static String formatPrice(String num) {
         DecimalFormat formatter = new DecimalFormat("#,###,###");
         return formatter.format(Float.valueOf(num));
+    }
+
+    /**
+     * Creating file uri to store image/video
+     */
+    public static Uri getOutputMediaFileUri(int type) {
+        return Uri.fromFile(getOutputMediaFile(type));
+    }
+
+    /**
+     * returning image / video
+     */
+    private static File getOutputMediaFile(int type) {
+
+        // External sdcard location
+        File mediaStorageDir = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                IMAGE_DIRECTORY_NAME);
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
+                        + IMAGE_DIRECTORY_NAME + " directory");
+                return null;
+            }
+        }
+
+        // Create a media file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
+        File mediaFile;
+        if (type == MEDIA_TYPE_IMAGE) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                    + "IMG_" + timeStamp + ".jpg");
+        } else if (type == MEDIA_TYPE_VIDEO) {
+            mediaFile = new File(mediaStorageDir.getPath() + File.separator
+                    + "VID_" + timeStamp + ".mp4");
+        } else {
+            return null;
+        }
+
+        return mediaFile;
     }
 
 }

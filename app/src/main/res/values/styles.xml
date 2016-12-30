@@ -1,22 +1,47 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="spinnerTheme" parent="Material.Widget.Spinner.Light"></style>
+    <style name="spinnerTheme" parent="Material.Widget.Spinner.Light" />
 
-    <style name="CircularProgressWhite" parent="Material.Drawable.CircularProgress">
+    <style name="CircularProgressWhite">
         <item name="cpd_strokeColor">@color/white</item>
         <item name="cpd_strokeSize">1dp</item>
+    </style>
+
+    <style name="AppTheme.popupTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:layoutDirection">rtl</item>
+
+    </style>
+
+    <style name="ShoppingCartItemTextStyle" parent="AppTheme">
+        <item name="android:gravity">center|right</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
+    </style>
+
+    <style name="SimpleDialog" parent="Theme.AppCompat">
+        <item name="di_backgroundColor">@color/white</item>
+        <item name="di_actionTextAppearance">@style/ShoppingCartItemTextStyle</item>
+        <item name="di_itemTextAppearance">@style/ShoppingCartItemTextStyle</item>
+        <item name="di_cornerRadius">10dp</item>
+        <item name="di_titleTextColor">@color/textColorPrimary</item>
+        <item name="di_layoutDirection">rtl</item>
     </style>
 
 </resources>

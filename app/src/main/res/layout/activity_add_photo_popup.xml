@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/silver_light_2"
+    android:gravity="center"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gallery"
+        android:layout_alignRight="@+id/gallery"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:textColor="@color/buttonTextColor"
+        android:padding="5dp"
+        android:visibility="visible"
+        android:text="@string/add_new_photo"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/gallery"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@+id/camera"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/gallery_txt"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/btn_text_size"
+        app:backgroundTint="@color/buttonColor" />
+
+    <android.support.v7.widget.AppCompatButton xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/camera"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/camera_txt"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/btn_text_size"
+        app:backgroundTint="@color/buttonColor" />
+
+</RelativeLayout>

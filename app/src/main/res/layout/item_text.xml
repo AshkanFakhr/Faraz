@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="wrap_content"
     android:layoutDirection="rtl">
 
@@ -10,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:textColor="@color/textColorPrimary"
         android:padding="10dp"
         android:gravity="center"
         android:text="آدرس سایت"
@@ -23,6 +25,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
         android:padding="5dp"
+        android:textColor="@color/textColorPrimary"
         android:layout_toLeftOf="@+id/title"
         android:background="@color/silver_light"
         android:gravity="right"

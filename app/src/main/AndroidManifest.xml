@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".utilities.AppController"
@@ -50,15 +51,18 @@
                 android:value="ashkan.fakhr.faraz.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.HomePageActivity"
-            android:label="HomePageActivity"
-            android:parentActivityName=".activities.LoginActivity"
+            android:name=".activities.FormActivity"
+            android:label="FormActivity"
+            android:parentActivityName=".activities.NavigationDrawerActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ashkan.fakhr.faraz.activities.MainActivity" />
+                android:value="ashkan.fakhr.faraz.activities.NavigationDrawerActivity" />
         </activity>
-        <activity android:name=".activities.FormActivity"></activity>
+        <activity android:name=".activities.NavigationDrawerActivity" />
+        <activity
+            android:name=".activities.AddPhotoPopupActivity"
+            android:theme="@style/AppTheme.popupTheme"></activity>
     </application>
 
 </manifest>

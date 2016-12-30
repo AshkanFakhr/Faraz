@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="ashkan.fakhr.faraz.activities.LoginActivity">
 
 
@@ -13,9 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar_simple" />
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
         <ScrollView
@@ -49,6 +53,7 @@
                         android:layout_margin="5dp"
                         android:gravity="center"
                         android:padding="5dp"
+                        android:textColor="@color/textColorPrimary"
                         android:text="@string/email"
                         android:textSize="16sp" />
 
@@ -57,7 +62,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@color/silver_light"
+                        android:textColor="@color/textColorPrimary"
+                        android:background="@color/silver_light_2"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:padding="5dp"
@@ -77,6 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:gravity="center"
+                        android:textColor="@color/textColorPrimary"
                         android:padding="5dp"
                         android:text="@string/password"
                         android:textSize="16sp" />
@@ -86,7 +93,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@color/silver_light"
+                        android:textColor="@color/textColorPrimary"
+                        android:background="@color/silver_light_2"
                         android:inputType="textPassword"
                         android:maxLines="1"
                         android:padding="5dp"
